@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////
-//   This is MMS64 random number generator at 2025.09.26    //
-//   Use the complier gcc.                                  //
+//   This is MMS64 random number generator at 2025.11.26    //
+//   Use the compiler gcc.                                  //
 //   MMS64 is an academic product.                          //
 //   Use MMS64 within your responsibility.                  //
 //////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ SIPara64 SIParaMMS64Korg =
     0xa8365eed39e1c070,  // XqBase  (from 1.Pi)(not used)
     0xa2cb4411ba257552,  // w0
     0xa8365eed39e1c070,  // v0
-    0, 0               // wkLL, vkLL
+    0, 0                 // wkLL, vkLL
     };
 SIPara64 SIParaMMS64K =
     {
@@ -67,7 +67,7 @@ SIPara64 SIParaMMS64K =
     0xa8365eed39e1c070,  // XqBase
     0xa2cb4411ba257552,  // w0
     0xa8365eed39e1c070,  // v0
-    0, 0               // wkLL, vkLL
+    0, 0                 // wkLL, vkLL
     };
 /********** for multiple-Integer computation ***********/
 #define  mIntBase       0x100000000
@@ -404,7 +404,7 @@ int mIntDIV_HL(mIntD *UD, mInt *Vcl, mIntD *QD, mIntD *RD)
            }
        QD->mIdgt[mIntIndexMax-M+j] = (unsigned int)QHAT;
 
-       if(c != 0)  // Ex. in radix 10  u=8640  v=433,  q^=20  --> q=19
+       if(c != 0)  // Ex. in radix 10  u=8640  v=433,  q=20  --> q=19
            {                           /*  kuwae-gaeshi */
            //printf("kuwae-gaesi c=%16Lx\n", c);
            QD->mIdgt[mIntIndexMax-M+j]--;
