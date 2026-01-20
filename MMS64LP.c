@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////
-//   This is MMS64LP random number generator at 2026.01.19. //
-//     ([Code-Name:'KUNIKOsan-20260119']).                  //
+//   This is MMS64LP random number generator at 2026.01.20. //
+//     ([Code-Name:'KUNIKOsan-20260120']).                  //
 //   Use the compiler gcc.                                  //
 //   MMS64LP is an academic product.                        //
 //   Use MMS64LP within your responsibility.                //
@@ -111,17 +111,17 @@ void MMS64plusRS_LP(SIPara64LP *SIParaLLP)
 void MMSshowRkSkLP(void)
     {
     uiLLHL LLHLn, LLHLwk;
-	
+
     LLHLwk.I = SIParaMMS64LP.rk;   // set rk
-	printf("rk  = %08x %08x  ", LLHLwk.HL.H, LLHLwk.HL.L);
+    printf("rk  = %08x %08x  ", LLHLwk.HL.H, LLHLwk.HL.L);
     LLHLwk.I = SIParaMMS64LP.sk;   // set sk
-	printf(" sk = %08x %08x\n", LLHLwk.HL.H, LLHLwk.HL.L);
+    printf(" sk = %08x %08x\n", LLHLwk.HL.H, LLHLwk.HL.L);
 
     LLHLwk.I = SIParaMMS64LP.rrk;   // set rrk
-	printf("rrk = %08x %08x  ", LLHLwk.HL.H, LLHLwk.HL.L);
+    printf("rrk = %08x %08x  ", LLHLwk.HL.H, LLHLwk.HL.L);
     LLHLwk.I = SIParaMMS64LP.ssk;   // set ssk
-	printf("ssk = %08x %08x\n", LLHLwk.HL.H, LLHLwk.HL.L);
-	}
+    printf("ssk = %08x %08x\n", LLHLwk.HL.H, LLHLwk.HL.L);
+    }
 
 /********** for multiple-Integer computation (using mInt) ***********/
 #define  mIntBase       0x100000000
@@ -144,11 +144,12 @@ int mIntDIV_HL(mIntD *UD, mInt *Vcl, mIntD *QD, mIntD *RD);
 
 /*******************************************************/
 
-mInt MMS64LP_Ini_InitialNo;   // the number given or determined by
-    //  MMSIni(), MMSIni_setNM(), MMSIni_setNMplusL(),
-    //  MMSIni_setNMLK(), MMSIni_plusNMLK(), MMSIni_setBin32x8()
+mInt MMS64LP_Ini_InitialNo;
+            // the number given or determined by
+            // MMSIni(), MMSIni_setNM(), MMSIni_setNMplusL(),
+            // MMSIni_setNMLK(), MMSIni_plusNMLK(), MMSIni_setBin32x8()
 
-void show_MMS64LP_Ini_InitialNo(void)  // for debug
+void show_MMS64LP_Ini_InitialNo(void)
     {
     int  i;
     printf("\nMMS64LP_Ini_InitialNo is\n");
@@ -204,7 +205,7 @@ void show_MMS_RN_counter(void)
               shr $32, %%rax; \
               or  %%rdx, %%rax; \
               or  %%r10, %%rax; \
-			  mov %%rax, %%rcx; \
+              mov %%rax, %%rcx; \
               mul %%rcx;     \
               mov %%rdx, %1; \
               shl $32, %%rdx; \
@@ -230,7 +231,7 @@ void show_MMS_RN_counter(void)
               shr $32, %%rax; \
               or  %%rdx, %%rax; \
               or  %%r10, %%rax; \
-			  mov %%rax, %%rcx; \
+              mov %%rax, %%rcx; \
               mov %4, %%rdx; \
               xor %%rdx, %%rax; \
               mov %5, %%rdx; \
@@ -613,11 +614,11 @@ int mIntDIV_HL(mIntD *UD, mInt *Vcl, mIntD *QD, mIntD *RD)
            //printf("%4x  ", MulSubWk.I);
            RD->mIdgt[iPj] = MulSubWk.HL.L;
            if ((int)MulSubWk.HL.H < 0)
-             {
-             MulSubWk.HL.L = MulSubWk.HL.H;
-             MulSubWk.HL.H = mIntBaseM1;
-             c -= MulSubWk.I;
-            }
+               {
+               MulSubWk.HL.L = MulSubWk.HL.H;
+               MulSubWk.HL.H = mIntBaseM1;
+               c -= MulSubWk.I;
+               }
            //printf("c=%4x  \n", c);
            }
        QD->mIdgt[mIntIndexMax-M+j] = (unsigned int)QHAT;
@@ -746,19 +747,19 @@ void MMS64IniComLP(SIPara64LP *SIParaLLP, mInt *N)
 
      SIParaLLP->rk = MMS64IniComLP_sub(SIParaLLP->p, SIParaLLP->r);
      // P_i = r*i mod p
-	 //MMSshowRkSkLP();	//debug 
+     //MMSshowRkSkLP();    //debug 
 
      SIParaLLP->sk = MMS64IniComLP_sub(SIParaLLP->q, SIParaLLP->s);
      // Q_i = s*i mod q
-	 //MMSshowRkSkLP();	//debug 
+     //MMSshowRkSkLP();    //debug 
 
      SIParaLLP->rrk = MMS64IniComLP_sub(SIParaLLP->pp, SIParaLLP->rr);
      // (PP)_i =rr*i mod pp
-	 //MMSshowRkSkLP();	//debug
+     //MMSshowRkSkLP();    //debug
  
      SIParaLLP->ssk = MMS64IniComLP_sub(SIParaLLP->qq, SIParaLLP->ss);
      // (QQ)_i =ss*i mod qq
-	 //MMSshowRkSkLP();	//debug 
+     //MMSshowRkSkLP();    //debug 
 
      clear_RN_counter();
      }
@@ -990,8 +991,8 @@ int mainSample_originalMMS64(void)
     ranBin64=MMS64_getBin64();
     printf("MMS64_getBin64()  %016llx  (= 8d9e8f81 819305cb)  // 3rd RN\n\n", ranBin64);
 
-	printf("MMSIni(202)  // set to generate 202-th RN\n");
-	N = 202;  MMSIni(N);
+    printf("MMSIni(202)  // set to generate 202-th RN\n");
+    N = 202;  MMSIni(N);
     ranBin64=MMS64_getBin64(); 
     printf("MMS64_getBin64()  %016llx  (= e619c76f af442894)  // 202_th RN\n\n", ranBin64);
 
@@ -1062,8 +1063,8 @@ int mainSample_MMS64LP(void)
     ranBin64=MMS64LP_getBin64();
     printf("MMS64LP_getBin64()  %016llx  (= c8b2fa4e 9adefdb5)  // 3rd RN\n\n", ranBin64);
     //show_MMS_RN_counter();  //debug
-	printf("MMSIni(202)  // set to generate 202-th RN\n");
-	N = 202;  MMSIni(N);
+    printf("MMSIni(202)  // set to generate 202-th RN\n");
+    N = 202;  MMSIni(N);
     //show_MMS64LP_Ini_InitialNo();  //debug
     ranBin64=MMS64LP_getBin64(); 
     printf("MMS64LP_getBin64()  %016llx  (= 675475cc f3be8e0c)  // 202_th RN\n\n", ranBin64);
@@ -1110,8 +1111,8 @@ int mainSample_MMS64LP(void)
 
     printf("\n======== using MMSIni_setNMLK() ========\n");
     N=0x8000000000000001; M=N; L=N; K=N;
-	printf("  N = M = L = K = 0x8000000000000001\n");
- 	printf("MMSIni_setNMLK(N,M,L,K)  // set to generate NxMxLxK-th RN\n");
+    printf("  N = M = L = K = 0x8000000000000001\n");
+    printf("MMSIni_setNMLK(N,M,L,K)  // set to generate NxMxLxK-th RN\n");
     MMSIni_setNMLK(N,M,L,K);
     //show_MMS64LP_Ini_InitialNo();  //debug
     ranBin64=MMS64LP_getBin64(); 
@@ -1126,24 +1127,24 @@ int mainSample_MMS64LP(void)
 
     printf("\n======== using MMSIni_setNMLK() and MMSIni_plusNMLK() ========\n");
     N=0x8000000000000001; M=N; L=N; K=5;
-	printf("  N = M = L = 0x8000000000000001,  k = 5\n");
- 	printf("MMSIni_setNMLK(N,M,L,5)  // set to generate NxMxLx5-th RN\n");
+    printf("  N = M = L = 0x8000000000000001,  k = 5\n");
+    printf("MMSIni_setNMLK(N,M,L,5)  // set to generate NxMxLx5-th RN\n");
     MMSIni_setNMLK(N,M,L,K);
     //show_MMS64LP_Ini_InitialNo();  //debug
     ranBin64=MMS64LP_getBin64(); 
     printf("MMS64LP_getBin64()  %016llx  (= ed68fc67 1dd34d27)  // \n", ranBin64);
 
     N=0x8000000000000001; M=N; L=N; K=3;
-	printf("\n  N = M = L = 0x8000000000000001,  k = 3\n");
- 	printf("MMSIni_setNMLK(N,M,L,3)  // set to generate NxMxLx3-th RN\n");
+    printf("\n  N = M = L = 0x8000000000000001,  k = 3\n");
+    printf("MMSIni_setNMLK(N,M,L,3)  // set to generate NxMxLx3-th RN\n");
     MMSIni_setNMLK(N,M,L,K);
     //show_MMS64LP_Ini_InitialNo();  //debug
     ranBin64=MMS64LP_getBin64(); 
     printf("MMS64LP_getBin64()  %016llx  (= 3aca75d8 68b7bce8)  // \n", ranBin64);
 
     N=0x8000000000000001; M=N; L=N; K=2;
-	printf("\n  N = M = L = 0x8000000000000001,  k = 2\n");
- 	printf("MMSIni_plusNMLK(N,M,L,2)  // set to generate (previous MMSIni_** No)+NxMxLx2-th RN\n");
+    printf("\n  N = M = L = 0x8000000000000001,  k = 2\n");
+    printf("MMSIni_plusNMLK(N,M,L,2)  // set to generate (previous MMSIni_** No)+NxMxLx2-th RN\n");
     MMSIni_plusNMLK(N,M,L,K);
     //show_MMS64LP_Ini_InitialNo();  //debug
     ranBin64=MMS64LP_getBin64(); 
@@ -1200,9 +1201,9 @@ int main()
 // If you find bugs, please mail to
 //    hiroshimayaguchi at-mark yahoo.co.jp .
 // (At that time, include the code-name (such as
-//   KUNIKOsan-20260119) in the subject of the mail.)
+//   KUNIKOsan-20260120) in the subject of the mail.)
 //
-// MMS64LP RNG : Last updated at 2026.01.19
-//      (Code Name : KUNIKOsan-20260119)
-// This NOTE : Last updated at 2026.01.19
+// MMS64LP RNG : Last updated at 2026.01.20
+//      (Code Name : KUNIKOsan-20260120)
+// This NOTE : Last updated at 2026.01.20
 /////////////////////////////////////////////////////////
