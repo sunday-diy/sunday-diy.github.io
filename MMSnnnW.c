@@ -1,37 +1,35 @@
 ////////////////////////////////////////////////////////////////
-//   This is MMSnnnW random number generator at 2026.01.19.   //
-//      ([Code-Name:'IKUKOsan-20260119']).                    //
+//   This is MMSnnnW random number generator at 2026.01.22.   //
+//      ([Code-Name:'IKUKOsan-20260122']).                    //
 //   Use the compiler gcc.                                    //
 //   MMSnnnW is an academic product.                          //
-//   Use MMSnnnW   within your responsibility.                //
+//   Use MMSnnnW within your responsibility.                  //
 ////////////////////////////////////////////////////////////////
 
-// "W" means XOR is taken widely.
-// "W" means double-staged XOR (long-period).
-//  MMSnnnW uses Pi to define B(base).
+        //  Period of MMMnnnW is
+        //  (p=2^63-25)x(q=2^63-165)x(pp=2^63-259)x(qq=2^63-301)
+        //   = approx. 10^75.
 
-//     Period of MMMnnnW is
-//       (p=2^63-25)x(q=2^63-165)x(pp=2^63-259)x(qq=2^63-301)
-//       = approx. 10^75.
+        // 'W' of MMSnnnW means XOR is taken 'w'idely.
+        // 'W' of MMSnnnW means 'double'-staged XOR (long-period).
+        //  MMSnnnW uses Pi to define B(base).
+        //  MMSnnn(originalMMS) uses Napier's const. to define B.
 
 //------ Test of the code ------------------------------------//
 
-// Remove 'only // below' if you want to test this module.
+// If you want to test this code,
+// remove // below, and compile and run.
 
 //#define HowToUseMMSnnnW   // main() in this module will be used 
               // gcc MMSnnnWtest.c -o MMSnnnWtest
 
-  #ifdef HowToUseMMSnnnW
-    #define MMS64W    // n=64 for test
-  #endif
+#ifdef HowToUseMMSnnnW
+  #define MMS64W    // nnn=64 for test
+#endif
 
 //------------------------------------------------------------//
 
-/******************/
-#include <stdio.h>
-#include <memory.h>
-
-/***** Select a Rand-type (1) *****/
+/***** Selection (1) *****/
 
 // remove one // below to indicate the bit-length nnn of RNs
 
@@ -47,7 +45,7 @@
 //#define MMS8192W
 //#define MMS16384W
 
-/***** Selection  (2) *****/
+/***** Selection (2) *****/
 
 // If you use MMSIni*** functions in MMSIniFuncs.c, remove // below.
 
@@ -61,9 +59,13 @@
 
          // The period of original MMS is (p=2^63-25)x(q=2^63-165).
 
-/*------- end of selection ------*/
+/*------- End of Selection ------*/
 
-/******************************/
+/******************/
+#include <stdio.h>
+#include <memory.h>
+/******************/
+
 #ifdef MMS64W
   #ifndef originalMMS	
 	#define  RAND_name "MMS64W"
@@ -1638,9 +1640,9 @@ int main()
 // If you find bugs, please mail to
 //    hiroshimayaguchi at-mark yahoo.co.jp .
 // (At that time, include the code-name (such as
-//   IKUKOsan-20260119) in the subject of the mail.)
+//   IKUKOsan-20260122) in the subject of the mail.)
 //
-// MMSnnnW RNG : Last updated at 2026.01.19
-//      (Code Name : IKUKOsan-20260119)
-// This NOTE : Last updated at 2026.01.19
+// MMSnnnW RNG : Last updated at 2026.01.22
+//      (Code Name : IKUKOsan-20260122)
+// This NOTE : Last updated at 2026.01.22
 /////////////////////////////////////////////////////////
